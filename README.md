@@ -1,6 +1,6 @@
 [![Download](https://api.bintray.com/packages/furkanakdemir/surroundcardview/com.furkanakdemir.surroundcardview/images/download.svg)](https://bintray.com/furkanakdemir/surroundcardview/com.furkanakdemir.surroundcardview/_latestVersion)
 ![GitHub](https://img.shields.io/github/license/furkanakdemir/surroundcardview)
-![API](https://img.shields.io/badge/API-23%2B-brightgreen)
+[![API](https://img.shields.io/badge/API-23%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=23)
 
 <p align="center">
   <img width="256" height="256" src="art/logo.svg">
@@ -32,7 +32,7 @@ Add the library to the `dependencies` section
 
 ```gradle
 dependencies {
-    implementation "com.furkanakdemir:surroundcardview:1.0.0"
+    implementation "com.furkanakdemir:surroundcardview:1.0.1"
 }
 ```
 

@@ -55,8 +55,6 @@ object BuildTypeFactory {
     ): BuildType {
         return buildTypeContainer.maybeCreate(RELEASE).apply {
             isTestCoverageEnabled = false
-            isMinifyEnabled = true
-
             isDebuggable = false
 
             val defaultProguardFile = getDefaultProguardFile(
@@ -64,6 +62,7 @@ object BuildTypeFactory {
                 project.layout.buildDirectory
             )
             if (!isLibrary) {
+                isMinifyEnabled = true
                 isShrinkResources = true
                 signingConfig = signingContainer.getByName(RELEASE)
                 proguardFiles(defaultProguardFile, "proguard-rules.pro")
