@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#03A9F4</color>
+    <color name="colorSecondary">#03A9F4</color>
+    <color name="colorDivider">#EBEBEB</color>
+    <color name="customColor">#E91E63</color>
+    <color name="customBackgroundColor">#E1F5FE</color>
+</resources>

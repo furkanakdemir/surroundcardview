@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lint>
+    <!-- Don't warn about available alpha versions -->
+    <issue id="GradleDependency">
+        <ignore regexp="is available: .*[alpha|beta]" />
+    </issue>
+
+    <!-- Disable the given check in this project -->
+    <issue id="IconMissingDensityFolder" severity="ignore" />
+    <issue id="ObsoleteLintCustomCheck" severity="ignore" />
+    <issue id="VectorPath" severity="ignore" />
+
+    <!-- Change the severity of hardcoded strings to "error" -->
+    <issue id="HardcodedText" severity="error" />
+
+</lint>

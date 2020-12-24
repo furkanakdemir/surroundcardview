@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Common Spacing-->
+    <dimen name="spacing_large">16dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+
+    <dimen name="stroke_width_custom">2dp</dimen>
+    <dimen name="size_surround_card">200dp</dimen>
+    <dimen name="height_divider">2dp</dimen>
+    <dimen name="radius_card_stand_alone">12dp</dimen>
+
+</resources>

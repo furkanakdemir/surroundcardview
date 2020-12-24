@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:focusableInTouchMode="true"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/sampleTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_large"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@tools:sample/lorem" />
+
+            <com.furkanakdemir.surroundcardview.SurroundCardView
+                android:id="@+id/sampleSurroundCardView"
+                android:layout_width="@dimen/size_surround_card"
+                android:layout_height="@dimen/size_surround_card"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/spacing_large"
+                app:cardBackgroundColor="@color/customBackgroundColor"
+                android:background="@android:color/white"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="@dimen/radius_card_stand_alone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sampleTitleTextView"
+                app:scv_duration="1000"
+                app:scv_startPoint="bottom_start"
+                app:scv_color="#03A9F4"
+                app:scv_surrounded="true"
+                app:scv_width="12dp" />
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/action_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_margin="@dimen/spacing_small"
+                app:icon="@drawable/ic_locked"
+                android:text="@string/sample_release" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_divider"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:background="@color/colorDivider" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/sampleRecyclerView"
+                android:layout_width="match_parent"
+                android:clipToPadding="false"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sampleSurroundCardView"
+                tools:itemCount="5"
+                tools:listitem="@layout/list_item_sample" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
