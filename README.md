@@ -32,7 +32,7 @@ Add the library to the `dependencies` section
 
 ```gradle
 dependencies {
-    implementation "com.furkanakdemir:surroundcardview:X.X.X"
+    implementation "com.furkanakdemir:surroundcardview:1.0.0"
 }
 ```
 
