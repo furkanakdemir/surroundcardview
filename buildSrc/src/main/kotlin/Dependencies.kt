@@ -27,7 +27,7 @@ object Versions {
 
     const val leak_canary = "2.5"
 
-    const val ktlint_internal = "0.39.0"
+    const val ktlint_internal = "0.40.0"
 }
 
 object PluginVersions {
@@ -42,10 +42,10 @@ object PluginVersions {
 object AndroidSdk {
 
     const val sdk_minimum = 23
-    const val sdk_compile = 29
-    const val sdk_target = 29
-    const val version_code = 10001
-    const val version_name = "1.0.1"
+    const val sdk_compile = 30
+    const val sdk_target = 30
+    const val version_code = 10002
+    const val version_name = "1.0.2"
 }
 
 object Deps {

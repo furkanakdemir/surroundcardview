@@ -1,6 +1,7 @@
 [![Download](https://api.bintray.com/packages/furkanakdemir/surroundcardview/com.furkanakdemir.surroundcardview/images/download.svg)](https://bintray.com/furkanakdemir/surroundcardview/com.furkanakdemir.surroundcardview/_latestVersion)
 ![GitHub](https://img.shields.io/github/license/furkanakdemir/surroundcardview)
 [![API](https://img.shields.io/badge/API-23%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=23)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-SurroundCardView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/8211)
 
 <p align="center">
   <img width="256" height="256" src="art/logo.svg">
@@ -32,7 +33,7 @@ Add the library to the `dependencies` section
 
 ```gradle
 dependencies {
-    implementation "com.furkanakdemir:surroundcardview:1.0.1"
+    implementation "com.furkanakdemir:surroundcardview:1.0.2"
 }
 ```
 
@@ -63,12 +64,25 @@ The example of `SurroundCardView` is the following:
 | scv_startPoint | StartPoint | top_start | the starting point of the animation                               |
 | scv_surrounded |  Boolean   |   false   | the initial visibility of the stroke                              |
 
-#### Surround & Release
+#### API
 
-|                  Surround                  |                  Release                  |
-| :----------------------------------------: | :---------------------------------------: |
-| <img height="256" src="art/surround.gif"/> | <img height="256" src="art/release.gif"/> |
-|    `sampleSurroundCardView.surround()`     |    `sampleSurroundCardView.release()`     |
+##### Surround
+
+```kotlin
+sampleSurroundCardView.surround()
+```
+
+##### Release
+
+```kotlin
+sampleSurroundCardView.release()
+```
+
+##### Switch
+
+```kotlin
+sampleSurroundCardView.switch()
+```
 
 #### Listener
 
@@ -144,7 +158,6 @@ sampleSurroundCardView.setStartPoint(startPoint)
 ## Upcoming
 
 - Support shape-theming
-- Add a `toggle` API
 - Change state even when the animation is running
 
 ## Contribution
