@@ -45,14 +45,28 @@
                 app:scv_surrounded="true"
                 app:scv_width="12dp" />
 
-            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-                android:id="@+id/action_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_margin="@dimen/spacing_small"
-                app:icon="@drawable/ic_locked"
-                android:text="@string/sample_release" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/action_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_small"
+                    app:icon="@drawable/ic_locked"
+                    android:text="@string/sample_release" />
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/switch_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_small"
+                    app:icon="@drawable/ic_switch"
+                    android:text="@string/sample_switch" />
+
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"

@@ -3,4 +3,5 @@
     <string name="sample_release">Release</string>
     <string name="sample_surround">Surround</string>
     <string name="sample_stand_alone">Stand Alone</string>
+    <string name="sample_switch">Switch</string>
 </resources>

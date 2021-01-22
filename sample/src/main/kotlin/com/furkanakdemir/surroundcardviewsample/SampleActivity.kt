@@ -83,6 +83,19 @@ class SampleActivity : AppCompatActivity() {
             standAloneState = standAloneState.not()
         }
 
+        switchButton.setOnClickListener {
+            if (!standAloneState) {
+                actionButton.text = getString(R.string.sample_release)
+                actionButton.setIconResource(R.drawable.ic_unlocked)
+            } else {
+                actionButton.text = getString(R.string.sample_surround)
+                actionButton.setIconResource(R.drawable.ic_locked)
+            }
+            sampleSurroundCardView.switch()
+
+            standAloneState = standAloneState.not()
+        }
+
         sampleAdapter = SampleAdapter(
             onAnimationEnd = {
                 val index = sampleItems.indexOf(it)

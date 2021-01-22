@@ -149,6 +149,14 @@ class SurroundCardView @JvmOverloads constructor(
         }
     }
 
+    fun switch() {
+        if (isCardSurrounded) {
+            release()
+        } else {
+            surround()
+        }
+    }
+
     fun setSurrounded(isSurrounded: Boolean) {
         isCardSurrounded = isSurrounded
         post { update(isSurrounded = isSurrounded, forced = true) }
