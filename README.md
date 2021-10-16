@@ -1,5 +1,5 @@
-[![Download](https://api.bintray.com/packages/furkanakdemir/surroundcardview/com.furkanakdemir.surroundcardview/images/download.svg)](https://bintray.com/furkanakdemir/surroundcardview/com.furkanakdemir.surroundcardview/_latestVersion)
-![GitHub](https://img.shields.io/github/license/furkanakdemir/surroundcardview)
+![Maven Central](https://img.shields.io/maven-central/v/com.furkanakdemir/surroundcardview?color=brightgreen)
+![GitHub](https://img.shields.io/github/license/furkanakdemir/surroundcardview?color=brightgreen)
 [![API](https://img.shields.io/badge/API-23%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=23)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-SurroundCardView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/8211)
 
@@ -19,12 +19,12 @@ SurroundCardView is a special form of `MaterialCardView` that has animated strok
 
 #### Gradle
 
-Add `jcenter` to your build.gradle in the root project.
+Add `mavenCentral` to your build.gradle in the root project.
 
 ```gradle
 allprojects {
     repositories {
-        jcenter()
+        mavenCentral()
     }
 }
 ```
@@ -33,7 +33,7 @@ Add the library to the `dependencies` section
 
 ```gradle
 dependencies {
-    implementation "com.furkanakdemir:surroundcardview:1.0.2"
+    implementation "com.furkanakdemir:surroundcardview:1.0.6"
 }
 ```
 

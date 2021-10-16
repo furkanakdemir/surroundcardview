@@ -18,12 +18,12 @@ package ext
 import com.android.build.gradle.internal.dsl.LintOptions
 import java.io.File
 
-fun LintOptions.setDefaults() {
+fun LintOptions.applyDefault(lintFile: File) {
     isAbortOnError = true
     isWarningsAsErrors = true
     isCheckDependencies = true
     isIgnoreTestSources = true
-    lintConfig = File("qa/lint/lint.xml")
+    lintConfig = lintFile
     disable("GradleDeprecated")
     disable("OldTargetApi")
     disable("GradleDependency")

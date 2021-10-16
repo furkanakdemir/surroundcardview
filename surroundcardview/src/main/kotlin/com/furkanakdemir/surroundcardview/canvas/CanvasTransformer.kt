@@ -17,6 +17,6 @@ package com.furkanakdemir.surroundcardview.canvas
 
 import android.graphics.Canvas
 
-interface CanvasTransformer {
+internal interface CanvasTransformer {
     fun transform(canvas: Canvas)
 }

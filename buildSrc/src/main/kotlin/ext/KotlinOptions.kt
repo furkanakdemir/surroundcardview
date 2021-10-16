@@ -13,22 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package utils
+package ext
 
-import org.gradle.api.Project
-import java.util.Locale
-
-internal fun isLinuxOrMacOs(): Boolean {
-    val osName = System.getProperty("os.name").toLowerCase(Locale.ROOT)
-    return listOf("linux", "mac os", "macos").contains(osName)
-}
-
-internal inline val parallelForks: Int
-    get() = (Runtime.getRuntime().availableProcessors() / 2).takeIf { it > 0 } ?: 1
-
-/**
- * Usage: <code>./gradlew build -PwarningsAsErrors=true</code>.
- */
-internal fun shouldTreatCompilerWarningsAsErrors(project: Project): Boolean {
-    return project.findProperty("warningsAsErrors") == "true"
+fun org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions.applyDefault() {
+    jvmTarget = "11"
 }

@@ -22,5 +22,4 @@ object BuildPlugins {
     const val SPOTLESS = "$PREFIX_PLUGINS.spotless"
     const val VERSIONS = "$PREFIX_PLUGINS.versions"
     const val KTLINT = "$PREFIX_PLUGINS.ktlint"
-    const val UPDATE_DEPENDENCIES = "$PREFIX_PLUGINS.versions"
 }

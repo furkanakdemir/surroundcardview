@@ -15,6 +15,7 @@
  */
 package com.furkanakdemir.surroundcardviewsample
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -41,6 +42,7 @@ class SampleAdapter(private val onAnimationEnd: (SampleItem) -> Unit) :
         holder.bind(sampleItems[position], onAnimationEnd)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun loadItems(sampleItems: List<SampleItem>) {
         this.sampleItems = sampleItems.toMutableList()
         notifyDataSetChanged()

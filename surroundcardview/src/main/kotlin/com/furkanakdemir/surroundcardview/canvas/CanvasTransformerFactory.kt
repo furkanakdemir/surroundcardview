@@ -21,7 +21,7 @@ import com.furkanakdemir.surroundcardview.StartPoint.BOTTOM_START
 import com.furkanakdemir.surroundcardview.StartPoint.TOP_END
 import com.furkanakdemir.surroundcardview.StartPoint.TOP_START
 
-object CanvasTransformerFactory {
+internal object CanvasTransformerFactory {
 
     const val DEGREE_FLIPPED = 180f
     const val DEGREE_DEFAULT = 0f

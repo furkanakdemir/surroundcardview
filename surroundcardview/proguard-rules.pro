@@ -1,0 +1,2 @@
+-keep class com.furkanakdemir.surroundcardview.SurroundCardView**
+-keepclassmembers class com.furkanakdemir.surroundcardview.SurroundCardView** {*;}

@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Furkan Akdemir
+ * Copyright 2021 Furkan Akdemir
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,9 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import com.android.build.gradle.api.AndroidSourceSet
+import InternalSourceSet.ANDROID_TEST
+import InternalSourceSet.MAIN
+import InternalSourceSet.TEST
+import com.android.build.api.dsl.AndroidSourceSet
 import org.gradle.api.NamedDomainObjectContainer
-import org.gradle.api.Project
 
 private object InternalSourceSet {
     const val MAIN = "main"
@@ -23,54 +25,24 @@ private object InternalSourceSet {
     const val ANDROID_TEST = "androidTest"
 }
 
-internal interface SourceSetCreator {
-    val name: String
-
-    fun create(
-        namedDomainObjectContainer: NamedDomainObjectContainer<AndroidSourceSet>,
-        project: Project
-    ): AndroidSourceSet
-}
-
-internal object Main : SourceSetCreator {
-    override val name = InternalSourceSet.MAIN
-
-    override fun create(
-        namedDomainObjectContainer: NamedDomainObjectContainer<AndroidSourceSet>,
-        project: Project
-    ): AndroidSourceSet {
-        return namedDomainObjectContainer.maybeCreate(name).apply {
-            java.srcDir("src/main/kotlin")
-        }
+fun NamedDomainObjectContainer<out AndroidSourceSet>.createMainSourceSet() {
+    getByName(MAIN) {
+        java.srcDirs("src/main/kotlin", "src/main/java")
     }
 }
 
-internal object Test : SourceSetCreator {
-    override val name = InternalSourceSet.TEST
-
-    override fun create(
-        namedDomainObjectContainer: NamedDomainObjectContainer<AndroidSourceSet>,
-        project: Project
-    ): AndroidSourceSet {
-        return namedDomainObjectContainer.maybeCreate(name).apply {
-            java.srcDirs("src/test/kotlin", "src/commonTest/java")
-            resources.srcDir("src/test/resources")
-            assets.srcDir("src/test/assets")
-        }
+fun NamedDomainObjectContainer<out AndroidSourceSet>.createTestSourceSet() {
+    getByName(TEST) {
+        java.srcDirs("src/test/kotlin", "src/commonTest/java")
+        resources.srcDir("src/test/resources")
+        assets.srcDir("src/test/assets")
     }
 }
 
-internal object AndroidTest : SourceSetCreator {
-    override val name = InternalSourceSet.ANDROID_TEST
-
-    override fun create(
-        namedDomainObjectContainer: NamedDomainObjectContainer<AndroidSourceSet>,
-        project: Project
-    ): AndroidSourceSet {
-        return namedDomainObjectContainer.maybeCreate(name).apply {
-            java.srcDirs("src/androidTest/kotlin", "src/androidTest/kotlin")
-            resources.srcDir("src/androidTest/resources")
-            assets.srcDir("src/androidTest/assets")
-        }
+fun NamedDomainObjectContainer<out AndroidSourceSet>.createAndroidTestSourceSet() {
+    getByName(ANDROID_TEST) {
+        java.srcDirs("src/androidTest/kotlin", "src/androidTest/kotlin")
+        resources.srcDir("src/androidTest/resources")
+        assets.srcDir("src/androidTest/assets")
     }
 }

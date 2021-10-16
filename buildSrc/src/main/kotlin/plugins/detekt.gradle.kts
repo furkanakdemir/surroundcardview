@@ -20,45 +20,42 @@ import io.gitlab.arturbosch.detekt.DetektPlugin
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import utils.javaVersion
 
-subprojects {
+apply<DetektPlugin>()
 
-    apply<DetektPlugin>()
+configure<DetektExtension> {
 
-    configure<DetektExtension> {
+    config = files("$rootDir/qa/detekt/default-detekt-config.yml")
+    baseline = file("$rootDir/qa/detekt/baseline.xml")
+    allRules = true
+    buildUponDefaultConfig = true
+    parallel = true
+    autoCorrect = true
 
-        config = files("$rootDir/qa/detekt/default-detekt-config.yml")
-        baseline = file("$rootDir/qa/detekt/baseline.xml")
-        failFast = true
-        buildUponDefaultConfig = true
-        parallel = true
-        autoCorrect = true
+    reports {
+        xml {
+            enabled = true
+            destination = file("${project.buildDir}/reports/detekt/detekt.xml")
+        }
 
-        reports {
-            xml {
-                enabled = true
-                destination = file("${project.buildDir}/reports/detekt/detekt.xml")
-            }
-
-            html {
-                enabled = true
-                destination = file("${project.buildDir}/reports/detekt/detekt.html")
-            }
-            txt {
-                enabled = false
-            }
+        html {
+            enabled = true
+            destination = file("${project.buildDir}/reports/detekt/detekt.html")
+        }
+        txt {
+            enabled = false
         }
     }
+}
 
-    tasks {
-        withType<Detekt> {
-            include("**/*.kt")
-            include("**/*.kts")
-            exclude("resources/")
-            exclude(".*build.*")
-            exclude(".*/tmp/.*")
+tasks {
+    withType<Detekt> {
+        include("**/*.kt")
+        include("**/*.kts")
+        exclude("resources/")
+        exclude(".*build.*")
+        exclude(".*/tmp/.*")
 
-            jvmTarget = javaVersion.toString()
-        }
+        jvmTarget = javaVersion.toString()
     }
 }
 

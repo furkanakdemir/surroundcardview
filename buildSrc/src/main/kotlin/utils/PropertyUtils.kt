@@ -17,4 +17,4 @@ package utils
 
 import org.gradle.api.JavaVersion
 
-inline val javaVersion: JavaVersion get() = JavaVersion.VERSION_1_8
+inline val javaVersion: JavaVersion get() = JavaVersion.VERSION_11

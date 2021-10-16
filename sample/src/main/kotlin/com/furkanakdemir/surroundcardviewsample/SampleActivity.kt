@@ -17,6 +17,7 @@ package com.furkanakdemir.surroundcardviewsample
 
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.os.Parcelable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -31,7 +32,7 @@ class SampleActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySampleBinding
     private lateinit var sampleAdapter: SampleAdapter
 
-    private val handler = Handler()
+    private val handler = Handler(Looper.getMainLooper())
     private var listState: Parcelable? = null
 
     private lateinit var sampleItems: MutableList<SampleItem>

@@ -18,84 +18,64 @@ package plugins
 import com.diffplug.gradle.spotless.SpotlessExtension
 import com.diffplug.gradle.spotless.SpotlessPlugin
 
-allprojects {
-    apply<SpotlessPlugin>()
+apply<SpotlessPlugin>()
 
-    configure<SpotlessExtension> {
-        format("misc") {
-            target(
-                fileTree(
-                    mapOf(
-                        "dir" to ".",
-                        "include" to listOf(
-                            "**/*.md",
-                            "**/.gitignore",
-                            "**/*.yaml",
-                            "**/*.yml"
-                        ),
-                        "exclude" to listOf(
-                            ".gradle/**",
-                            ".gradle-cache/**",
-                            "**/tools/**",
-                            "**/build/**"
-                        )
-                    )
-                )
-            )
-            trimTrailingWhitespace()
-            indentWithSpaces()
-            endWithNewline()
-        }
+configure<SpotlessExtension> {
+    format("misc") {
 
-        format("xml") {
-            target("**/res/**/*.xml")
-            targetExclude("**/build/**")
-            indentWithSpaces(4)
-            trimTrailingWhitespace()
-            endWithNewline()
-        }
+        target(
+            "**/*.md",
+            "**/.gitignore",
+            "**/*.yaml",
+            "**/*.yml"
+        )
 
-        kotlin {
-            target(
-                fileTree(
-                    mapOf(
-                        "dir" to ".",
-                        "include" to listOf("**/*.kt"),
-                        "exclude" to listOf("**/build/**", "**/spotless/*.kt")
-                    )
-                )
-            )
-            licenseHeaderFile(
-                rootProject.file("qa/spotless/copyright.kt"),
-                "^(package|object|import|interface|internal|@file)"
-            )
-            trimTrailingWhitespace()
-            indentWithSpaces()
-            endWithNewline()
-        }
+        targetExclude(
+            ".gradle/**",
+            ".gradle-cache/**",
+            "**/tools/**",
+            "**/build/**"
+        )
+        trimTrailingWhitespace()
+        indentWithSpaces()
+        endWithNewline()
+    }
 
-        kotlinGradle {
-            target(
-                fileTree(
-                    mapOf(
-                        "dir" to ".",
-                        "include" to listOf("**/*.gradle.kts", "*.gradle.kts"),
-                        "exclude" to listOf(
-                            "**/build/**",
-                            "**/spotless/*.java",
-                            "**/spotless/*.kt"
-                        ),
-                        "exclude" to listOf("buildSrc/settings.gradle.kts")
-                    )
-                )
-            )
-            licenseHeaderFile(
-                rootProject.file("qa/spotless/copyright.kt"),
-                "package|import|tasks|apply|plugins|include|val|object|interface|pluginManagement"
-            )
-            trimTrailingWhitespace()
-            indentWithSpaces()
-            endWithNewline()
-        }
+    format("xml") {
+        target("**/res/**/*.xml")
+        targetExclude("**/build/**")
+        indentWithSpaces(4)
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
+
+    kotlin {
+        target("**/*.kt")
+        targetExclude("**/build/**", "**/buildSrc/**", "**/.*", ".spotless/*", "**/spotless/*.kt")
+        licenseHeaderFile(
+            rootProject.file("qa/spotless/copyright.kt"),
+            "^(package|object|import|interface|internal|@file)"
+        )
+        trimTrailingWhitespace()
+        indentWithSpaces()
+        endWithNewline()
+    }
+
+    kotlinGradle {
+
+        target("**/*.gradle.kts", "*.gradle.kts")
+        targetExclude(
+            "**/build/**",
+            "**/spotless/*.java",
+            "**/spotless/*.kt",
+            "buildSrc/settings.gradle.kts"
+        )
+        licenseHeaderFile(
+            rootProject.file("qa/spotless/copyright.kt"),
+            "package|import|tasks|apply|plugins|include|val|object|interface|pluginManagement"
+        )
+        trimTrailingWhitespace()
+        indentWithSpaces()
+        endWithNewline()
     }
 }

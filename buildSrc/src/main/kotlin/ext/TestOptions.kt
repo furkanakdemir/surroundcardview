@@ -17,7 +17,7 @@ package ext
 
 import com.android.build.gradle.internal.dsl.TestOptions
 
-fun TestOptions.applyDefaultTestConfigs() {
+fun TestOptions.applyDefault() {
     unitTests.isReturnDefaultValues = true
     unitTests.isIncludeAndroidResources = true
     animationsDisabled = true

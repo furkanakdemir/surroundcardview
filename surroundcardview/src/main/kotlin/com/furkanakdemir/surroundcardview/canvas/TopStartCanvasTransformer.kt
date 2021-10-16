@@ -20,7 +20,7 @@ import com.furkanakdemir.surroundcardview.canvas.CanvasTransformerFactory.DEGREE
 import com.furkanakdemir.surroundcardview.canvas.CanvasTransformerFactory.SCALE_DEFAULT_X
 import com.furkanakdemir.surroundcardview.canvas.CanvasTransformerFactory.SCALE_DEFAULT_Y
 
-class TopStartCanvasTransformer : CanvasTransformer {
+internal class TopStartCanvasTransformer : CanvasTransformer {
 
     override fun transform(canvas: Canvas) {
         canvas.translate(0f, 0f)

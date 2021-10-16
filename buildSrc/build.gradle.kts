@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Furkan Akdemir
+ * Copyright 2021 Furkan Akdemir
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,40 +14,32 @@
  * limitations under the License.
  */
 plugins {
+    `java-gradle-plugin`
     `kotlin-dsl`
+    `kotlin-dsl-precompiled-script-plugins`
 }
 
 repositories {
     google()
     mavenCentral()
     gradlePluginPortal()
-    jcenter()
     maven("https://plugins.gradle.org/m2/")
 }
 
-kotlinDslPluginOptions {
-    experimentalWarning.set(false)
-}
-
 object Plugins {
-    const val android = "4.1.1"
-    const val kotlin = "1.4.21"
-    const val versions = "0.28.0"
-    const val spotless = "3.28.1"
-    const val detekt = "1.8.0"
-    const val ktlint = "9.2.1"
+    const val android = "7.0.3"
+    const val kotlin = "1.5.31"
+    const val versions = "0.39.0"
+    const val spotless = "5.17.0"
+    const val detekt = "1.18.1"
+    const val ktlint = "10.2.0"
     const val dexcount = "1.0.2"
     const val bintray = "1.8.5"
 }
 
 dependencies {
-    // Explicitly declare all the kotlin bits to avoid mismatched versions
     implementation(kotlin("gradle-plugin", version = Plugins.kotlin))
-    implementation(kotlin("stdlib", version = Plugins.kotlin))
-    implementation(kotlin("stdlib-common", version = Plugins.kotlin))
-    implementation(kotlin("stdlib-jdk7", version = Plugins.kotlin))
     implementation(kotlin("stdlib-jdk8", version = Plugins.kotlin))
-    implementation(kotlin("reflect", version = Plugins.kotlin))
 
     implementation("com.android.tools.build:gradle:${Plugins.android}")
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:${Plugins.kotlin}")

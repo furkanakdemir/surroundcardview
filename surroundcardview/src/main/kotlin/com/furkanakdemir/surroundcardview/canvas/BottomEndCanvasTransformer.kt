@@ -20,7 +20,7 @@ import com.furkanakdemir.surroundcardview.canvas.CanvasTransformerFactory.DEGREE
 import com.furkanakdemir.surroundcardview.canvas.CanvasTransformerFactory.SCALE_DEFAULT_X
 import com.furkanakdemir.surroundcardview.canvas.CanvasTransformerFactory.SCALE_DEFAULT_Y
 
-class BottomEndCanvasTransformer(private val width: Float, private val height: Float) :
+internal class BottomEndCanvasTransformer(private val width: Float, private val height: Float) :
     CanvasTransformer {
 
     override fun transform(canvas: Canvas) {

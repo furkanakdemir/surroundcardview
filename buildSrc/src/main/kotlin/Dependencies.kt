@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Furkan Akdemir
+ * Copyright 2021 Furkan Akdemir
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,40 +15,36 @@
  */
 object Versions {
 
-    const val kotlin_version = "1.4.21"
+    const val surroundcardview = "1.0.6"
+    const val kotlin_version = "1.5.31"
 
-    const val constraintlayout = "2.0.4"
-    const val appcompat = "1.2.0"
-    const val material = "1.2.1"
-    const val recyclerview = "1.1.0"
-    const val core_ktx = "1.3.2"
+    const val constraintlayout = "2.1.1"
+    const val appcompat = "1.3.1"
+    const val material = "1.4.0"
+    const val recyclerview = "1.2.1"
+    const val core_ktx = "1.6.0"
 
-    const val junit = "4.13.1"
+    const val junit = "4.13.2"
 
-    const val leak_canary = "2.5"
+    const val leak_canary = "2.7"
 
-    const val ktlint_internal = "0.40.0"
-}
+    const val ktlint_internal = "0.42.1"
 
-object PluginVersions {
-    const val versions = "0.28.0"
-    const val spotless = "3.28.1"
-    const val detekt = "1.8.0"
-    const val ktlint = "9.2.1"
-    const val dexcount = "1.0.2"
-    const val bintray = "1.8.5"
+    const val nexus_publishing = "1.1.0"
 }
 
 object AndroidSdk {
 
-    const val sdk_minimum = 23
-    const val sdk_compile = 30
-    const val sdk_target = 30
-    const val version_code = 10002
-    const val version_name = "1.0.2"
+    const val minimumVersion = 23
+    const val compileVersion = 31
+    const val targetVersion = 31
+    const val version_code = 10006
+    const val version_name = "1.0.6"
 }
 
 object Deps {
+
+    const val surroundcardview = "com.furkanakdemir:surroundcardview:${Versions.surroundcardview}"
 
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin_version}"
 
@@ -71,13 +67,9 @@ object Plugins {
     const val androidLibrary = "com.android.library"
     const val kotlinAndroid = "android"
     const val kotlinKapt = "kapt"
-    const val dexcount = "com.getkeepsafe.dexcount"
-    const val bintray = "com.jfrog.bintray"
-    const val detekt = "io.gitlab.arturbosch.detekt"
-    const val ktlint = "org.jlleitschuh.gradle.ktlint"
-    const val versions = "com.github.ben-manes.versions"
-    const val spotless = "com.diffplug.gradle.spotless"
+    const val nexusPublishing = "io.github.gradle-nexus.publish-plugin"
 }
+
 
 object TestDeps {
     const val junit = "junit:junit:${Versions.junit}"

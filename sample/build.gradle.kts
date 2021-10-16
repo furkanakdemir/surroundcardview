@@ -13,29 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import ext.applyDefaultTestConfigs
-import ext.createDebug
-import ext.createKotlinAndroidTest
-import ext.createKotlinMain
-import ext.createKotlinTest
-import ext.createRelease
-import ext.createReleaseSigning
-import ext.setDefaults
+import ext.applyDefault
 
 plugins {
     id(Plugins.androidApplication)
     kotlin(Plugins.kotlinAndroid)
-    kotlin(Plugins.kotlinKapt)
 }
 
 android {
 
-    compileSdkVersion(AndroidSdk.sdk_compile)
+    compileSdk = AndroidSdk.compileVersion
 
     defaultConfig {
         applicationId = "com.furkanakdemir.surroundcardviewsample"
-        minSdkVersion(AndroidSdk.sdk_minimum)
-        targetSdkVersion(AndroidSdk.sdk_target)
+
+        minSdk = AndroidSdk.minimumVersion
+        targetSdk = AndroidSdk.targetVersion
         versionCode = AndroidSdk.version_code
         versionName = AndroidSdk.version_name
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -46,36 +39,58 @@ android {
     }
 
     signingConfigs {
-        createReleaseSigning(this)
+
+        create("release") {
+            storeFile = project.file("scv.jks")
+            storePassword = System.getenv("scvStorePassword")
+            keyAlias = System.getenv("scvStoreKeyAlias")
+            keyPassword = System.getenv("scvStorePasswordKeyPassword")
+        }
     }
 
     buildTypes {
-        createDebug(this)
-        createRelease(this, signingConfigs)
+
+        getByName("debug") {
+            isMinifyEnabled = false
+            isDebuggable = true
+            applicationIdSuffix = ".dev"
+            isTestCoverageEnabled = true
+            signingConfig = signingConfigs.getByName("debug")
+        }
+
+        getByName("release") {
+
+            isMinifyEnabled = true
+            isShrinkResources = true
+            signingConfig = signingConfigs.getByName("release")
+            isDebuggable = false
+            isTestCoverageEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
     }
 
     sourceSets {
-        createKotlinMain(this)
-        createKotlinTest(this)
-        createKotlinAndroidTest(this)
+        createMainSourceSet()
+        createTestSourceSet()
+        createAndroidTestSourceSet()
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility(JavaVersion.VERSION_11)
+        targetCompatibility(JavaVersion.VERSION_11)
     }
 
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-
-    testOptions.applyDefaultTestConfigs()
-
-    lintOptions.setDefaults()
+    kotlinOptions.applyDefault()
+    testOptions.applyDefault()
+    lintOptions.applyDefault(rootProject.file("qa/lint/lint.xml"))
 }
 
 dependencies {
     implementation(project(":surroundcardview"))
+//    implementation(Deps.surroundcardview)
 
     implementation(Deps.kotlin)
     implementation(Deps.appcompat)
